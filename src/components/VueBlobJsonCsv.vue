@@ -67,7 +67,7 @@ export default Vue.extend({
           this.fields.length > 0
             ? this.fields
             : Object.keys(this.data[0] as string[]);
-        let csv = `\ufeff${keys.join()}\n`;
+        let csv = `\ufeff${keys.join(this.delimiter)}\n`;
 
         for (let index = 0; index < this.data.length; index++) {
           const item: any = this.data[index];
