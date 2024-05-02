@@ -30,6 +30,7 @@
             title="Download Todos CSV"
             file-type="csv"
             file-name="todos"
+            delimiter=","
             :data="todos"
             :fields="fieldsKey"
             class="button is-link"

@@ -119,6 +119,7 @@ Vue.use(VueBlobJsonCsv)
 | `title` | String | `false` |  | Button title name
 | `fileType` | String | `true` | `csv` | File extension (`csv` or `json`)
 | `fileName` | String | `false` | `data` | File name
+| `delimiter` | String | `false` | `,` | CSV delimiter
 | `data` | Array | `true` |  | Data you want to export
 | `fields` | Array | `false` |  | Export only specific keys
 | `confirm` | String | `false` |  | Text to display in the dialog

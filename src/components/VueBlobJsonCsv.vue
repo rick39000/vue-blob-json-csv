@@ -30,6 +30,11 @@ export default Vue.extend({
       required: true,
       default: ""
     },
+    delimiter: {
+      type: String,
+      required: false,
+      default: ","
+    },
     fileName: {
       type: String,
       required: false,
@@ -76,7 +81,7 @@ export default Vue.extend({
                 return [item[key]];
               }
             })
-            .join(",");
+            .join(this.delimiter);
           csv += `${line}\n`;
         }
         content = csv;
