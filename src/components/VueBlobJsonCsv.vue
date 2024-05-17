@@ -76,9 +76,17 @@ export default Vue.extend({
               if (item[key] === null) {
                 return null;
               } else if (typeof item[key] === "object") {
-                return JSON.stringify([item[key]]);
+                let result = JSON.stringify([item[key]])
+                if (result.search(this.delimiter) >= 0) {
+                  result = '"' + result.replaceAll('"','""') + '"'
+                }
+                return result;
               } else {
-                return [item[key]];
+                let result = item[key]
+                if (typeof result === 'string' && result.search(this.delimiter) >= 0) {
+                  result = '"' + result.replaceAll('"','""') + '"'
+                }
+                return [result];
               }
             })
             .join(this.delimiter);
