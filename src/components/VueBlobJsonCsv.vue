@@ -76,15 +76,18 @@ export default Vue.extend({
               if (item[key] === null) {
                 return null;
               } else if (typeof item[key] === "object") {
-                let result = JSON.stringify([item[key]])
+                let result = JSON.stringify([item[key]]);
                 if (result.search(this.delimiter) >= 0) {
-                  result = '"' + result.replaceAll('"','""') + '"'
+                  result = '"' + result.replace(/"/, '""') + '"';
                 }
                 return result;
               } else {
-                let result = item[key]
-                if (typeof result === 'string' && result.search(this.delimiter) >= 0) {
-                  result = '"' + result.replaceAll('"','""') + '"'
+                let result = item[key];
+                if (
+                  typeof result === "string" &&
+                  result.search(this.delimiter) >= 0
+                ) {
+                  result = '"' + result.replace(/"/, '""') + '"';
                 }
                 return [result];
               }
